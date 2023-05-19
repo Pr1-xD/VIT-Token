@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import {ethers} from 'ethers';
 
 export default function Signup() {
 
@@ -9,6 +11,22 @@ export default function Signup() {
     {   
         e.preventDefault()
         console.log(`Submitted + ${regNum} + ${secPin}` )
+
+        const wallet = ethers.Wallet.createRandom()
+        console.log('address:', wallet.address)
+        console.log('mnemonic:', wallet.mnemonic.phrase)
+        console.log('privateKey:', wallet.privateKey)
+
+        try{
+            axios.post('http://localhost:4000/api/signup',{registeration_number:regNum,security_pin:secPin,wallet_address: wallet.address, private_key:wallet.privateKey})
+            .then(res=>{
+                console.log(res.status)
+                console.log(res.data)
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
     }
 
     return (
