@@ -13,7 +13,7 @@ if(!txData){
             .then(res=>{
                 console.log(res.status)
                 console.log(res.data)
-
+                res.data.txData.reverse()
                 setTxData(res.data.txData)
             })
         }
