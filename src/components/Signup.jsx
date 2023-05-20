@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import {ethers} from 'ethers';
+import { useNavigate } from 'react-router-dom';
 
 export default function Signup() {
+
+    const navigate = useNavigate();
 
     const [regNum,setRegNum] = useState("")
     const [secPin,setSecPin] = useState("")
@@ -22,6 +25,8 @@ export default function Signup() {
             .then(res=>{
                 console.log(res.status)
                 console.log(res.data)
+                navigate('/onboarding',{state:{address: wallet.address, phrase:wallet.mnemonic.phrase, privateKey:wallet.privateKey}})
+                
             })
         }
         catch(err){

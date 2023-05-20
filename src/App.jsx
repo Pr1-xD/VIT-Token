@@ -9,6 +9,7 @@ import Dashboard from './Dashboard';
 import Bdashboard from './Bdashboard';
 import Signup from './components/Signup';
 import Transfer from './components/Transfer';
+import Onboarding from './components/Onboarding';
 const App = () => {
   return (
     <div >
@@ -19,6 +20,7 @@ const App = () => {
             <Route path="/offers" element={<Odashboard/>} />
             <Route path="/dashboard" element={<Dashboard/>} />
             <Route path="/transfer" element={<Transfer/>} />
+            <Route path="/onboarding" element={<Onboarding/>} />
             <Route path="/balance" element={<Bdashboard/>} />
         </Routes>
       </BrowserRouter>
