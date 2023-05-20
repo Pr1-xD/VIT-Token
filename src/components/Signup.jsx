@@ -33,7 +33,7 @@ export default function Signup() {
         <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
             <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
                 <h1 className="text-3xl font-semibold text-center text-purple-700 underline">
-                   Sign in
+                   Sign up
                 </h1>
                 <form className="mt-6">
                     <div className="mb-2">
@@ -81,7 +81,7 @@ export default function Signup() {
                     {" "}
                     Already have an account?{" "}
                     <a
-                        href="#"
+                        href="http://127.0.0.1:5173/"
                         className="font-medium text-purple-600 hover:underline"
                     >
                         Log In

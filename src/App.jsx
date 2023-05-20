@@ -8,6 +8,7 @@ import Odashboard from './Odashboard';
 import Dashboard from './Dashboard';
 import Bdashboard from './Bdashboard';
 import Signup from './components/Signup';
+import Transfer from './components/Transfer';
 const App = () => {
   return (
     <div >
@@ -17,6 +18,7 @@ const App = () => {
             <Route path="/signup" element={<Signup/>} />
             <Route path="/offers" element={<Odashboard/>} />
             <Route path="/dashboard" element={<Dashboard/>} />
+            <Route path="/transfer" element={<Transfer/>} />
             <Route path="/balance" element={<Bdashboard/>} />
         </Routes>
       </BrowserRouter>
