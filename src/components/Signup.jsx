@@ -48,7 +48,7 @@ export default function Signup() {
                             for="text"
                             className="block text-sm font-semibold text-gray-800"
                         >
-                            Registeration Number
+                            Registration Number
                         </label>
                         <input
                             type="text"

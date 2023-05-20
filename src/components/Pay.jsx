@@ -47,16 +47,16 @@ function Transfer(props) {
             <div class="w-full max-w-xl mx-auto lg:w-96">
                 <div>
                     <a href="./index.html" class="text-blue-600 text-medium">VIT Pay</a>
-                    <h2 class="mt-6 text-3xl font-extrabold text-neutral-600">Transfer to peers</h2>
+                    <h2 class="mt-6 text-3xl font-extrabold text-neutral-600">Pay Merchant</h2>
                 </div>
 
                 <div class="mt-8">
                     <div class="mt-6">
                         <form action="#" method="POST" class="space-y-6">
                             <div>
-                                <label for="email" class="block text-sm font-medium text-neutral-600">Registration Number </label>
+                                <label for="email" class="block text-sm font-medium text-neutral-600">Merchant ID </label>
                                 <div class="mt-1">
-                                    <input id="email" name="email" type="text"  required="" value={recRegNum} onChange={(e)=>{setRecRegNum(e.target.value)}} placeholder="19BCE0123" class="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"/>
+                                    <input id="email" name="email" type="text"  required="" value={recRegNum} onChange={(e)=>{setRecRegNum(e.target.value)}} placeholder="shuttle" class="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"/>
                                 </div>
                             </div>
 
@@ -85,7 +85,7 @@ function Transfer(props) {
                                 <div class="w-full border-t border-gray-300"></div>
                             </div>
                             <div class="relative flex justify-center text-sm">
-                                <span class="px-2 bg-white text-neutral-600"> Or pay a merchant </span>
+                                <span class="px-2 bg-white text-neutral-600"> Or transfer to peer </span>
                             </div>
                         </div>
                         <div>
@@ -103,7 +103,7 @@ function Transfer(props) {
                                         <path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z"></path>
                                         <path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z"></path>
                                     </svg>
-                                    <span class="ml-4"> Merchant Pay</span>
+                                    <span class="ml-4"> Transfer</span>
                                 </div>
                             </button>
                         </div>
