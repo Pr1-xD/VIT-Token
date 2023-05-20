@@ -11,10 +11,13 @@
   },
   "dependencies": {
     "axios": "^1.4.0",
+    "keccak256": "^1.0.6",
+    "merkletreejs": "^0.3.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
-    "react-router-dom": "^6.9.0"
+    "react-router-dom": "^6.9.0",
+    "web3-eth-abi": "^1.10.0"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.2.2",

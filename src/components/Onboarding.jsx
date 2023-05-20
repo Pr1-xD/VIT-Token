@@ -29,7 +29,7 @@ function Onboarding(props) {
         <p class="mb-8 text-base leading-relaxed text-left text-gray-500"> Mnemonic Phrase: {location.state.phrase}</p>
         <div class="mt-0 lg:mt-6 max-w-7xl sm:flex">
           <div class="mt-3 rounded-lg sm:mt-0">
-            <button class="items-center block px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Continue</button>
+            <button class="items-center block px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"><a href='/home'>Continue</a></button>
           </div>
           <div class="mt-3 rounded-lg sm:mt-0 sm:ml-3">
             <button class="items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">Learn Metamask</button>
