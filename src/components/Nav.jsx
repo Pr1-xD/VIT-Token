@@ -1,6 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 function Nav(props) {
+
+    const address = sessionStorage.getItem("walletAddress")
+
+    const [balance,setBalance] = useState(0)
+
+    if(address)
+    {
+      try{
+        axios.get('http://localhost:4000/api/balance/'+address)
+        .then(res=>{
+            console.log(res.status)
+            console.log(res.data)
+            setBalance(res.data.balance)
+            
+        })
+    }
+    catch(err){
+        console.log(err)
+    }  
+    }
+    
+
     return (
         <div>
             <div class=" w-full ">
@@ -18,7 +41,7 @@ function Nav(props) {
             
 
             <div class="inline-flex items-center gap-2 list-none lg:ml-auto">
-                <button class="items-center block px-10 py-2.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">Sign in</button>
+                <button class="items-center block px-10 py-2.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">{balance}</button>
                 <button class="items-center block px-10 py-3 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Sign up</button>
             </div>
         </nav>

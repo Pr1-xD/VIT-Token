@@ -1,7 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Nav from './Nav'
+import axios from 'axios'
 
 function Transfer(props) {
+
+    const regNum = sessionStorage.getItem("regNum")
+    const [recRegNum,setRecRegNum] = useState("")
+    const [amount,setAmount] = useState()
+    const [secPin,setSecPin] = useState()
+
+    function handleSubmit(e)
+    {   
+        e.preventDefault()
+        console.log(`Submitted + ${regNum} + ${recRegNum} + ${amount} + ${secPin}` )
+
+        let params = {
+            "registeration_number":regNum,
+            "security_pin":secPin,
+            "rec_registeration_number":recRegNum,
+            "amount":amount
+        }
+
+        try{
+            axios.post('http://localhost:4000/api/transfer',params)
+            .then(res=>{
+                console.log(res.status)
+                console.log(res.data)
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
+
     return (
         <div>
             <Nav/>
@@ -24,28 +56,28 @@ function Transfer(props) {
                             <div>
                                 <label for="email" class="block text-sm font-medium text-neutral-600">Registeration Number </label>
                                 <div class="mt-1">
-                                    <input id="email" name="email" type="text"  required="" placeholder="19BCE0123" class="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"/>
+                                    <input id="email" name="email" type="text"  required="" value={recRegNum} onChange={(e)=>{setRecRegNum(e.target.value)}} placeholder="19BCE0123" class="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"/>
                                 </div>
                             </div>
 
                             <div>
                                 <label for="email" class="block text-sm font-medium text-neutral-600">Amount </label>
                                 <div class="mt-1">
-                                    <input id="email" name="email" type="text"  required="" placeholder="100" class="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"/>
+                                    <input id="email" name="email" type="text"  required="" value={amount} onChange={(e)=>{setAmount(e.target.value)}} placeholder="100" class="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"/>
                                 </div>
                             </div>
 
                             <div class="space-y-1">
                                 <label for="password" class="block text-sm font-medium text-neutral-600">Pin</label>
                                 <div class="mt-1">
-                                    <input id="password" name="password" type="password" autocomplete="current-password" required="" placeholder="1234" class="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"/>
+                                    <input id="password" name="password" type="password" value={secPin} onChange={(e)=>{setSecPin(e.target.value)}} autocomplete="current-password" required="" placeholder="1234" class="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"/>
                                 </div>
                             </div>
 
                             
 
                             <div>
-                                <button type="submit" class="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Pay</button>
+                                <button type="submit" onClick={(e)=>{handleSubmit(e)}} class="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Pay</button>
                             </div>
                         </form>
                         <div class="relative my-4">

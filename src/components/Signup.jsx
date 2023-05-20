@@ -25,7 +25,9 @@ export default function Signup() {
             .then(res=>{
                 console.log(res.status)
                 console.log(res.data)
-                navigate('/onboarding',{state:{address: wallet.address, phrase:wallet.mnemonic.phrase, privateKey:wallet.privateKey}})
+                sessionStorage.setItem("regNum",regNum)
+                sessionStorage.setItem("walletAddress",wallet.address)
+                navigate('/onboarding',{state:{regNum:regNum, address: wallet.address, phrase:wallet.mnemonic.phrase, privateKey:wallet.privateKey}})
                 
             })
         }

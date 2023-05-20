@@ -16,6 +16,9 @@ export default function Login() {
             .then(res=>{
                 console.log(res.status)
                 console.log(res.data)
+                sessionStorage.setItem("regNum",regNum)
+                sessionStorage.setItem("walletAddress",wallet.address)
+                //redirect to home page
             })
         }
         catch(err){
