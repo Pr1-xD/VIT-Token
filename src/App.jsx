@@ -14,6 +14,7 @@ import Pay from './components/Pay';
 import Transfer from './components/Transfer';
 import Onboarding from './components/Onboarding';
 import Home from "./components/Home";
+import AddBalance from "./components/AddBalance";
 const App = () => {
   return (
     <div >
@@ -31,6 +32,7 @@ const App = () => {
             <Route path="/transfer" element={<Transfer/>} />
             <Route path="/onboarding" element={<Onboarding/>} />
             <Route path="/balance" element={<Bdashboard/>} />
+            <Route path="/addbalance" element={<AddBalance/>} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
 
+    const navigate = useNavigate();
     const [regNum,setRegNum] = useState("")
     const [secPin,setSecPin] = useState("")
 
@@ -17,7 +19,8 @@ export default function Login() {
                 console.log(res.status)
                 console.log(res.data)
                 sessionStorage.setItem("regNum",regNum)
-                sessionStorage.setItem("walletAddress",wallet.address)
+                sessionStorage.setItem("walletAddress",res.data.userData.wallet_address)
+                navigate('/home')
                 //redirect to home page
             })
         }
