@@ -8,7 +8,7 @@ Deploying Smart Contracts
 
 ```shell
 npx hardhat node
-npx hardhat run scripts/deploy.cjs
+npx hardhat run scripts/deploy.cjs --network localhost
 ```
 
 Starting Frontend
